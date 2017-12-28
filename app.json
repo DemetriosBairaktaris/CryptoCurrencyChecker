@@ -1,5 +1,12 @@
 {
   "expo": {
-    "sdkVersion": "23.0.0"
-  }
+    	
+	 "name": "Crypto Checker",
+    	"slug": "CryptoChecker",
+    	"sdkVersion": "23.0.0",
+    	"privacy": "public",  
+   	"android": {
+       		"package": "com.demetriosbairaktaris.CryptoCurrencyChecker"
+   	}
+   }
 }

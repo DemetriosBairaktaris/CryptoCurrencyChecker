@@ -3,19 +3,11 @@ import { StyleSheet, Text, View, ScrollView,  ActivityIndicator } from 'react-na
 
 const currency_api_url = "https://api.coinmarketcap.com/v1/ticker/?limit=50";
 
-function extractData(obj){
-    data  = {}; 
-    data.name = obj.name;
-    data.symbol = obj.symbol; 
-    data.price_usd = obj.price_usd; 
-    data.percent_change_1h = obj.percent_change_1h; 
-    return data; 
-};
 
 export default class App extends React.Component {
   
   extractData(obj){
-    data  = {}; 
+    var data  = {}; 
     data.name = obj.name;
     data.symbol = obj.symbol; 
     data.price_usd = obj.price_usd; 
