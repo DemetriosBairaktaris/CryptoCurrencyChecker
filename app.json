@@ -2,7 +2,8 @@
   "expo": {
     	
 	 "name": "Crypto Checker",
-    	"slug": "CryptoChecker",
+	"version": "1.0.0",
+    	"slug": "Crypto-Checker",
     	"sdkVersion": "23.0.0",
     	"privacy": "public",  
    	"android": {

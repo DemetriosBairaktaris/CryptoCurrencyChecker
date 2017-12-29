@@ -58,7 +58,7 @@ class Header extends React.Component{
   render(){
     return (
 
-        <View style={{borderBottomStyle:"solid", borderBottomColor: "#03A", borderBottomWidth: 1, marginTop: "10%", flex:.1, alignItems: "center"}}>
+        <View style={{borderBottomColor: "#03A", borderBottomWidth: 1, marginTop: "10%", flex:.1, alignItems: "center"}}>
           <Text style={{fontWeight:"bold", color: "#25A", fontSize: 20,fontWeight: "200",flex:1 }}>{this.props.title}</Text>
         </View>
       
