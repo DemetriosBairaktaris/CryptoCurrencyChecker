@@ -1,10 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView,  ActivityIndicator } from 'react-native'; //todo sort these in alph
-
 import {Header,Box} from "./src/components"
 
 const currency_api_url = "https://api.coinmarketcap.com/v1/ticker/?limit=50";
-
 
 export default class App extends React.Component {
   
@@ -22,18 +20,26 @@ export default class App extends React.Component {
 
     this.state = {currencies: [], loading: true} ; 
     var comp = this ; 
-    fetch(currency_api_url)
-        .then(function(data) {
-          var currencies = JSON.parse(data._bodyText) ; 
-          var extractedCurrencies = [] ;
-          
-          currencies.forEach(function extract(currency){
-              extractedCurrencies.push(comp.extractData(currency)) ; 
+    var updateData = function(currency_api_url) {
+      fetch(currency_api_url)
+          .then(function(data) {
+
+            var currencies = JSON.parse(data._bodyText) ; 
+            var extractedCurrencies = [] ;
+            
+            currencies.forEach(function extract(currency){
+                extractedCurrencies.push(comp.extractData(currency)) ; 
+            });
+            console.log("changing state..");
+            comp.setState(previousState => {
+                return {currencies: (extractedCurrencies), loading: false} 
+            }); 
           });
-          comp.setState(previousState => {
-              return {currencies: (extractedCurrencies), loading: false} 
-          }); 
-        });
+          comp.state = {currencies: [], loading: true}
+        } ; 
+      updateData(currency_api_url) ; 
+      setInterval(function(){updateData(currency_api_url)},30000);
+      
     
   };
 
@@ -54,36 +60,6 @@ export default class App extends React.Component {
     );
   }
 }
-
-
-
-// class Box extends React.Component{
-  
-//   getBackgroundColor(value){
-//     value = Number(value)
-//     if (value > 0){
-//       return "#419950"; //greenish
-//     }
-//     else if (value < 0){
-//        return "#d63333" ;  //redish
-//     }
-//     else{
-//       return "#cc8e00" ; //yellowish
-//     }
-//   }
-
-//   render(){
-//       return (
-
-//           <View style={[styles.Box, {backgroundColor: this.getBackgroundColor(this.props.percent_change_1h)}]}>   
-//              <Text style={{flex:1, fontWeight:"bold", color: "white"}}>{this.props.name}</Text>
-//              <Text style={{flex:1 ,color: "white"}}>{this.props.symbol}</Text>
-//              <Text style={{flex:1,  color: "white"}}>${this.props.price_usd}</Text>  
-//              <Text style={{flex:1, color: "white"}}>1h: {this.props.percent_change_1h}%</Text>
-//           </View>
-//       );
-//   }
-// }
 
 /**
   Declare Styles Here
