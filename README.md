@@ -11,4 +11,4 @@ API used cryptocurrency prices: https://coinmarketcap.com/
 DEMO: 
 
 
-![alt text](https://github.com/DemetriosBairaktaris/CryptoCurrencyChecker/blob/master/CryptoPic.png)
+![alt text](https://media.giphy.com/media/l4EoPYLptKhzYuCA0/giphy.gif)
