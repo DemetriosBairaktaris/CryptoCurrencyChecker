@@ -1,4 +1,4 @@
-import Header from './Header.js' ; 
-import Box from "./Box.js" ; 
+import Header from './Header.js'
+import Box from './Box.js'
 
-export {Header, Box} ; 
+export {Header, Box}
